@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>House Price Prediction</h1>
+        <form method="POST" action="/">
+            <label for="lot_area">Lot area size in sf:</label>
+            <input type="number" step="any" name="lot_area" required placeholder="Enter lot area size in sf"><br>
+
+            <label for="bedroom_abv_gr">No. of Bedrooms:</label>
+            <input type="number" name="bedroom_abv_gr" required placeholder="Enter no. of bedrooms"><br>
+
+            <label for="garage_cars">Size of garage in car capacity:</label>
+            <input type="number" name="garage_cars" required placeholder="Enter size of garage in car capacity"><br>
+
+            <label for="duplex">Duplex:</label>
+            <select name="duplex" required>
+                <option value="" disabled selected>Select</option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select><br>
+
+            <label for="overall_qual">Overall Quality:</label>
+            <input type="number" name="overall_qual" required placeholder="Enter overall quality"><br>
+
+            <label for="fireplaces">No. of Fireplaces:</label>
+            <input type="number" name="fireplaces" required placeholder="Enter no. of fireplaces"><br>
+
+            <label for="pave">Pavement Road:</label>
+            <select name="pave" required>
+                <option value="" disabled selected>Select</option>
+                <option value="True">True</option>
+                <option value="False">False</option>
+            </select><br>
+
+            <label for="total_bsmt_sf">Total basement area in sf:</label>
+            <input type="number" step="any" name="total_bsmt_sf" required placeholder="Enter total basement area in sf"><br>
+
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <h2>Predicted House Price (in dollars): {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
+
